@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: bb4f5dd2aa126e54a8e908e44043efb5
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: jtBn_hair
+    100002: jtBn_head
+    100004: jtBn_l_arm
+    100006: jtBn_l_clavicle
+    100008: jtBn_l_elbow
+    100010: jtBn_l_inxdex
+    100012: jtBn_l_inxdex1
+    100014: jtBn_l_inxdex2
+    100016: jtBn_l_little
+    100018: jtBn_l_little1
+    100020: jtBn_l_little2
+    100022: jtBn_l_mid
+    100024: jtBn_l_mid1
+    100026: jtBn_l_mid2
+    100028: jtBn_l_ring
+    100030: jtBn_l_ring1
+    100032: jtBn_l_ring2
+    100034: jtBn_l_thumb
+    100036: jtBn_l_thumb1
+    100038: jtBn_l_thumb2
+    100040: jtBn_l_twist
+    100042: jtBn_l_wing
+    100044: jtBn_l_wing1
+    100046: jtBn_l_wing2
+    100048: jtBn_neck
+    100050: jtBn_r_arm
+    100052: jtBn_r_clavicle
+    100054: jtBn_r_elbow
+    100056: jtBn_r_inxdex
+    100058: jtBn_r_inxdex1
+    100060: jtBn_r_inxdex2
+    100062: jtBn_r_little
+    100064: jtBn_r_little1
+    100066: jtBn_r_little2
+    100068: jtBn_r_mid
+    100070: jtBn_r_mid1
+    100072: jtBn_r_mid2
+    100074: jtBn_r_ring
+    100076: jtBn_r_ring1
+    100078: jtBn_r_ring2
+    100080: jtBn_r_thumb
+    100082: jtBn_r_thumb1
+    100084: jtBn_r_thumb2
+    100086: jtBn_r_twist
+    100088: jtBn_r_wing
+    100090: jtBn_r_wing1
+    100092: jtBn_r_wing2
+    100094: jtBn_spline
+    100096: jtBn_spline1
+    100098: jtBn_spline2
+    100100: jtBn_spline3
+    100102: jtBn_tail
+    100104: jtBn_tail1
+    100106: jtBn_tail2
+    100108: jtBn_tail3
+    100110: jtBn_tail4
+    100112: jtBn_tail5
+    100114: jtBn_tail6
+    100116: //RootNode
+    100118: wadjetF2:Mesh
+    100120: Mesh
+    400000: jtBn_hair
+    400002: jtBn_head
+    400004: jtBn_l_arm
+    400006: jtBn_l_clavicle
+    400008: jtBn_l_elbow
+    400010: jtBn_l_inxdex
+    400012: jtBn_l_inxdex1
+    400014: jtBn_l_inxdex2
+    400016: jtBn_l_little
+    400018: jtBn_l_little1
+    400020: jtBn_l_little2
+    400022: jtBn_l_mid
+    400024: jtBn_l_mid1
+    400026: jtBn_l_mid2
+    400028: jtBn_l_ring
+    400030: jtBn_l_ring1
+    400032: jtBn_l_ring2
+    400034: jtBn_l_thumb
+    400036: jtBn_l_thumb1
+    400038: jtBn_l_thumb2
+    400040: jtBn_l_twist
+    400042: jtBn_l_wing
+    400044: jtBn_l_wing1
+    400046: jtBn_l_wing2
+    400048: jtBn_neck
+    400050: jtBn_r_arm
+    400052: jtBn_r_clavicle
+    400054: jtBn_r_elbow
+    400056: jtBn_r_inxdex
+    400058: jtBn_r_inxdex1
+    400060: jtBn_r_inxdex2
+    400062: jtBn_r_little
+    400064: jtBn_r_little1
+    400066: jtBn_r_little2
+    400068: jtBn_r_mid
+    400070: jtBn_r_mid1
+    400072: jtBn_r_mid2
+    400074: jtBn_r_ring
+    400076: jtBn_r_ring1
+    400078: jtBn_r_ring2
+    400080: jtBn_r_thumb
+    400082: jtBn_r_thumb1
+    400084: jtBn_r_thumb2
+    400086: jtBn_r_twist
+    400088: jtBn_r_wing
+    400090: jtBn_r_wing1
+    400092: jtBn_r_wing2
+    400094: jtBn_spline
+    400096: jtBn_spline1
+    400098: jtBn_spline2
+    400100: jtBn_spline3
+    400102: jtBn_tail
+    400104: jtBn_tail1
+    400106: jtBn_tail2
+    400108: jtBn_tail3
+    400110: jtBn_tail4
+    400112: jtBn_tail5
+    400114: jtBn_tail6
+    400116: //RootNode
+    400118: wadjetF2:Mesh
+    400120: Mesh
+    2100000: 'Material #25'
+    2100002: 'Material #26'
+    4300000: wadjetF2:Mesh
+    4300002: Mesh
+    9500000: //RootNode
+    13700000: wadjetF2:Mesh
+    13700002: Mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

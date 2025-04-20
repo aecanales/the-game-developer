@@ -28,13 +28,13 @@ public class scr_health : MonoBehaviour
 
             if (gameObject.CompareTag("Player"))
             {
+                anim.SetBool("DEAD", true) ;
                 if (dmgTxt != null)
                 {
                     dmgTxt.text = "> RESPAWNING";
                     Invoke(nameof(ResetDevLogText), 0.5f);
                 }
-                transform.position = GameObject.Find("RESPAWN").transform.position;
-                health = 20;
+                Invoke(nameof(RespawnPlayer), 4f);
             }
             else
             {
@@ -51,7 +51,7 @@ public class scr_health : MonoBehaviour
         if (invincible) { return; }
         health -= dmgTaken;
         Debug.Log("Taken DMG");
-        if (anim != null) 
+        if (anim != null && !gameObject.CompareTag("Player")) 
         { 
             anim.SetBool("HURT", true);
             Debug.Log("AM HURT");
@@ -63,10 +63,18 @@ public class scr_health : MonoBehaviour
         }
         if (gameObject.CompareTag("Player"))
         {
+            anim.SetTrigger("HURT");
             invincible = true;
-            Invoke(nameof(DisableInvincibility), 0.3f);
+            Invoke(nameof(DisableInvincibility), 0.6f);
             OnPlayerDamaged?.Invoke();
         }
+    }
+
+    public void RespawnPlayer()
+    {
+        anim.SetBool("DEAD", false);
+        transform.position = GameObject.Find("RESPAWN").transform.position;
+        health = 20;
     }
 
     public void BeUnhurt()

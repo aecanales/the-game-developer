@@ -7,6 +7,7 @@ public class scr_playerController : MonoBehaviour
     Vector3 velocity;
     public ParticleSpawner Pspawner;
     public Rigidbody body;
+    public Animator anim;
     public float mSpd;
     public float dashSpd;
     public float dashCooldown;
@@ -15,6 +16,8 @@ public class scr_playerController : MonoBehaviour
     public float dTime = 0.5f;
     public float health;
     public bool dashing;
+    public bool noMove;
+    public bool stunned;
     public Vector3 rotationSetting;
 
     //public GameObject firePointU;
@@ -23,6 +26,7 @@ public class scr_playerController : MonoBehaviour
     //public GameObject firePointL;
     public GameObject activeFirePoint;
     public GameObject equippedSpell;
+    public SpellType equippedEffect;
     public GameObject equippedFamiliar;
     public GameObject spell2;
     public GameObject spell1;
@@ -67,7 +71,7 @@ public class scr_playerController : MonoBehaviour
         velocity = Vector3.zero;
         velocity.x = Input.GetAxisRaw("Horizontal");
         velocity.z = Input.GetAxisRaw("Vertical"); //We move on X and Z, not Y. Result of moving from 2 to 3 dimensions
-        if (Input.GetKeyDown(KeyCode.Space) && currentAttack == null) { Dash(); }
+        if (Input.GetKeyDown(KeyCode.Space) && currentAttack == null && !stunned) { Dash(); }
 
         if (velocity.x > 0)
         {
@@ -89,7 +93,11 @@ public class scr_playerController : MonoBehaviour
             //activeFirePoint = firePointD;
             rotationSetting = new Vector3(0, 180f, 0f);
         }
-    
+        if (velocity.z != 0 || velocity.x != 0) { anim.SetBool("MOVE", true); }
+        else { anim.SetBool("MOVE", false); }
+        if (dashing) { anim.SetBool("DASH", true); }
+        else { anim.SetBool("DASH", false); }
+
 
 
         //if (Input.GetKeyDown(KeyCode.K))
@@ -97,27 +105,33 @@ public class scr_playerController : MonoBehaviour
         //    if (equippedSpell == spellA) { equippedSpell = spellB; }
         //    else if (equippedSpell == spellB) { equippedSpell = spellA; }
         //}
-        if (Input.GetKeyDown(KeyCode.J) && !dashing) 
+        if (Input.GetKeyDown(KeyCode.J) && !dashing && !stunned)
         {
             if (spell1 == gameObject) { gameObject.GetComponent<scr_health>().health = 0; }
-            else 
+            else
             {
                 equippedSpell = spell1;
-                Attack(equippedSpell, spell1Type);
+                equippedEffect = spell1Type;
+                anim.SetFloat("Blend", Random.Range(0, 1));
+                anim.SetTrigger("ATTACK");
+                //Attack();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.I) && !dashing)
+        if (Input.GetKeyDown(KeyCode.I) && !dashing && !stunned)
         {
             if (spell2 == gameObject) { gameObject.GetComponent<scr_health>().health = 0; }
             else
             {
                 equippedSpell = spell2;
-                Attack(equippedSpell, spell2Type);
+                equippedEffect = spell2Type;
+                anim.SetFloat("Blend", Random.Range(0, 1));
+                anim.SetTrigger("ATTACK");
+                //Attack();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && !dashing) { Summon(equippedFamiliar); }
+        if (Input.GetKeyDown(KeyCode.L) && !dashing && !stunned) { Summon(equippedFamiliar); }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -127,15 +141,17 @@ public class scr_playerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SwitchSpell1ToBeam();
-        }        
+        }
 
-        if (currentAttack != null)
+        if (currentAttack != null && !noMove)
         {
             mSpd = 0f;
             //if (currentAttack.GetComponent<scr_spells>().PushSpell) { mSpd = 0f; }
             if (currentAttack.GetComponent<scr_spells>().PullSpell) { mSpd = defaultSpd; }
         }
-        else if (currentAttack == null) { mSpd = defaultSpd; }
+        else if (currentAttack == null && !noMove) { mSpd = defaultSpd; }
+        if (noMove) { mSpd = 0f; }
+        else {  mSpd = defaultSpd; }
 
         if (currentAttack != null)
         {
@@ -154,7 +170,7 @@ public class scr_playerController : MonoBehaviour
                 }
             }
         }
-        if(PitCheck() && !dashing) //Checks for pits when walking so we don't fall and die
+        if (PitCheck() && !dashing) //Checks for pits when walking so we don't fall and die
         {
             body.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 
@@ -170,6 +186,12 @@ public class scr_playerController : MonoBehaviour
         else { gameObject.GetComponent<scr_health>().invincible = false; }
         if (health <= 0f) { Death(); }
     }
+
+    public void EnableMovement() { noMove = false; }
+    public void DisableMovement() { noMove = true; }
+    public void StunMe() { stunned = true; }
+    public void DeStunMe() { stunned = false; }
+
 
     public void ChangeFirstSpellEffect(int NewType)
     {
@@ -295,8 +317,10 @@ public class scr_playerController : MonoBehaviour
         }
     }
 
-    void Attack(GameObject spellShape, SpellType type)
+    public void Attack()
     {
+        var spellShape = equippedSpell;
+        var type = equippedEffect;
         if (currentAttack == null)
         {
             if (spellShape == shield)
